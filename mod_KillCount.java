@@ -9,10 +9,7 @@ public class mod_KillCount extends BaseMod {
 		
 	}
 	
-	public String players = "5";
-	public String peaceful = "3";
-	public String passiveAgressive = "12";
-	public String hostile = "1111";
+	public String kills = "0";
 	
 	@Override
 	public boolean onTickInGame(float f, Minecraft mc) {
@@ -20,14 +17,8 @@ public class mod_KillCount extends BaseMod {
 		
 	    mc.fontRenderer.drawString("Kill Counter", 1,1,1);
 	    mc.fontRenderer.drawString("Kill Counter", 2,1,1);
-	    mc.fontRenderer.drawString("Players: ", 1,12,1);
-	    mc.fontRenderer.drawString(players, 45,12,1);
-	    mc.fontRenderer.drawString("Peaceful: ", 1,24,1);
-	    mc.fontRenderer.drawString(peaceful, 50,24,1);
-	    mc.fontRenderer.drawString("Neutral: ", 1,36,1);
-	    mc.fontRenderer.drawString(passiveAgressive, 42,36,1);
-	    mc.fontRenderer.drawString("Hostile: ", 1,48,1);
-	    mc.fontRenderer.drawString(hostile, 42,48,1);
+	    mc.fontRenderer.drawString("Kills: ", 1,12,1);
+	    mc.fontRenderer.drawString(kills, 45,12,1);
 	    
 		return true;
 	}
@@ -39,7 +30,14 @@ public class mod_KillCount extends BaseMod {
 	}
 
 	@Override
+	public void clientCustomPayload(NetClientHandler var1, Packet250CustomPayload killData) {
+		kills = new String (killData.data);		
+	}
+	
+	
+	@Override
 	public void load() {
+		ModLoader.registerPacketChannel(this, "KillCount");
 		ModLoader.setInGameHook(this, true, false);
 	}
 
