@@ -88,7 +88,7 @@
     
     <target name="package" depends="compile">
         
-        <jar destfile="${jar.dir}/killcount-client-${killcount.version}.jar" basedir="${classes.dir}/client"/>
+        <jar destfile="${jar.dir}/killcount-client-${killcount.version}.jar" basedir="${classes.dir}"/>
         
     </target>
     
