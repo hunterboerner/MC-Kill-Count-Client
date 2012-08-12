@@ -51,6 +51,10 @@
         <chmod file="${mcp.dir}/runtime/bin/astyle-osx" perm="+x" />
         <chmod file="${mcp.dir}/runtime/bin/jad-osx" perm="+x" />
         
+        <copy todir="${clientsrc.dir}">
+            <fileset dir="${src.dir}/killcount_client"/>
+        </copy>
+
     </target>
     
     <target name="compile" depends="setup">
@@ -73,6 +77,10 @@
             <arg value="reobfuscate.sh" />
         </exec>
         
+        <copy todir="${classes.dir}/client">
+            <fileset dir="${mcp.dir}/reobf/minecraft"/>
+        </copy>
+
     </target>
     
     <target name="package" depends="compile">
