@@ -50,10 +50,6 @@
         <!-- if your building on OSX these 2 should be executable -->
         <chmod file="${mcp.dir}/runtime/bin/astyle-osx" perm="+x" />
         <chmod file="${mcp.dir}/runtime/bin/jad-osx" perm="+x" />
-        
-        <copy todir="${clientsrc.dir}">
-            <fileset dir="${src.dir}/killcount_client"/>
-        </copy>
 
     </target>
     
@@ -77,9 +73,16 @@
             <arg value="reobfuscate.sh" />
         </exec>
         
-        <copy todir="${classes.dir}/client">
+         <copy todir="${classes.dir}/client">
             <fileset dir="${mcp.dir}/reobf/minecraft"/>
         </copy>
+
+        <copy todir="${classes.dir}/client">
+            <fileset dir="${src.dir}/resources"></fileset>
+        </copy>
+
+        <echo message="Compiling finished"/>
+
 
     </target>
     
