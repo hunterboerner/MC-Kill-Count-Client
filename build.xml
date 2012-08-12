@@ -73,11 +73,11 @@
             <arg value="reobfuscate.sh" />
         </exec>
         
-         <copy todir="${classes.dir}/client">
+         <copy todir="${classes.dir}/minecraft">
             <fileset dir="${mcp.dir}/reobf/minecraft"/>
         </copy>
 
-        <copy todir="${classes.dir}/client">
+        <copy todir="${classes.dir}/minecraft">
             <fileset dir="${src.dir}/resources"></fileset>
         </copy>
 
