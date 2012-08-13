@@ -88,7 +88,7 @@
     
     <target name="package" depends="compile">
         
-        <zip destfile="${jar.dir}/killcount-client-${killcount.version}.zup" basedir="${classes.dir}/src"/>
+        <zip destfile="${jar.dir}/killcount-client-${killcount.version}.zip" basedir="${classes.dir}/src"/>
         
     </target>
     
