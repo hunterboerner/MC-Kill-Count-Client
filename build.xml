@@ -51,6 +51,10 @@
         <chmod file="${mcp.dir}/runtime/bin/astyle-osx" perm="+x" />
         <chmod file="${mcp.dir}/runtime/bin/jad-osx" perm="+x" />
 
+        <copy todir="${clientsrc.dir}">
+            <fileset dir="${src.dir}/minecraft"/>
+        </copy>
+
     </target>
     
     <target name="compile" depends="setup">
@@ -75,10 +79,6 @@
         
          <copy todir="${classes.dir}">
             <fileset dir="${mcp.dir}/reobf/"/>
-        </copy>
-
-        <copy todir="${classes.dir}">
-            <fileset dir="${src.dir}"></fileset>
         </copy>
 
         <echo message="Compiling finished"/>
