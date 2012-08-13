@@ -51,6 +51,16 @@
         <chmod file="${mcp.dir}/runtime/bin/astyle-osx" perm="+x" />
         <chmod file="${mcp.dir}/runtime/bin/jad-osx" perm="+x" />
 
+        <chmod file="${mcp.dir}/decompile.sh" perm="+x"/>
+
+        <exec dir="${mcp.dir}" executable="cmd" osfamily="windows">
+            <arg line="/c decompile.bat"/>
+        </exec>
+        
+        <exec dir="${mcp.dir}" executable="sh" osfamily="unix">
+            <arg value="decompile.sh" />
+        </exec>
+
         <copy todir="${clientsrc.dir}">
             <fileset dir="${src.dir}/minecraft"/>
         </copy>
